@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PAS Car Image</title>
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+
+    <script type="text/babel">
+
+      class Counter extends React.Component {
+        constructor(props){
+           super(props);
+           this.state = {
+             number: 1
+           }
+         }
+ 
+        render() {
+          return (
+            <div>
+              <img src={this.props.image} alt="Car"/>
+              <h1>Image of: {this.props.label}</h1>
+              <h2>Number of Images: {this.state.number}</h2>
+            </div>
+          );
+        }
+      }
+
+      const info = {
+        date: new Date(),
+        image: 'https://media.wired.com/photos/5aa18e3edc9df6500b90747b/master/w_1164,c_limit/CarRoundup-Mclaren.jpg',
+      }
+
+      Counter.defaultProps = {
+        label: "Car"
+      }
+
+      ReactDOM.render(
+        <Counter
+          image={info.image}/>,document.getElementById('app')
+      );
+
+    </script>
+  </body>
+</html>
